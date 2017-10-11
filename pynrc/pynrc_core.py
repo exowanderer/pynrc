@@ -33,7 +33,7 @@ from astropy.table import Table
 from scipy import fftpack
 
 # Import libraries
-from nrc_utils import *
+from .nrc_utils import *
 
 import logging
 _log = logging.getLogger('pynrc')

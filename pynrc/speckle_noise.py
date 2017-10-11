@@ -3,14 +3,14 @@ from __future__ import print_function, division
 # Import the usual libraries
 import numpy as np
 
-import pynrc
-from pynrc import nrc_utils
-from pynrc.nrc_utils import webbpsf, poppy
+# from . import *
+from . import nrc_utils, setup_logging, read_filter
+from .nrc_utils import webbpsf, poppy
 
 import astropy.io.fits as fits
 import multiprocessing as mp
 
-pynrc.setup_logging('WARNING', verbose=False)
+setup_logging('WARNING', verbose=False)
 
 from poppy import zernike
 from poppy.optics import MultiHexagonAperture
@@ -539,7 +539,7 @@ def offset_bar(filt, mask):
 
     if (mask is not None) and ('WB' in mask):		
         # What is the effective wavelength of the filter?	
-        #bp = pynrc.read_filter(filter)
+        #bp = read_filter(filter)
         #w0 = bp.avgwave() / 1e4
         w0 = np.float(filt[1:-1])/100
     
